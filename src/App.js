@@ -5,6 +5,13 @@ import { ReactComponent as MesonIcon } from './meson.svg'
 import popup from './popup.jpg'
 
 export default function App() {
+  const appId = React.useMemo(() => {
+    if (window.location.pathname === '/goledo') {
+      return 'goledo'
+    }
+    return 'demo'
+  }, [])
+
   const [data, setData] = React.useState(null)
   const completed = data && (
     <a className='flex items-center hover:underline' href={`https://explorer.meson.fi/swap/${data.swapId}`} target='_blank' rel="noreferrer">
@@ -56,7 +63,7 @@ export default function App() {
             This example contract will forward receiving tokens to the sender's address on Polygon.
           </div>
           <div>
-            <MesonToButton appId='demo' onCompleted={setData} className='mt-4 lg:mt-6'>
+            <MesonToButton appId={appId} onCompleted={setData} className='mt-4 lg:mt-6'>
               <ButtonText />
             </MesonToButton>
           </div>
