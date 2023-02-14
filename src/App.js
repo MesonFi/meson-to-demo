@@ -1,39 +1,37 @@
 import React from 'react'
 import MesonToButton from '@mesonfi/to'
 
+import Completed from './Completed'
+
 import { ReactComponent as MesonIcon } from './meson.svg'
 import popup from './popup.jpg'
+import apps from './apps.json'
 
 export default function App() {
-  const [appId, isTestnet] = React.useMemo(() => {
-    if (window.location.pathname === '/goledo') {
-      return ['goledo']
-    } else if (window.location.pathname === '/hinkal') {
-      return ['hinkal', true]
+  const [appId, appInfo, isTestnet] = React.useMemo(() => {
+    if (window.location.pathname === '/hinkal') {
+      const appInfo = apps.find(app => app.id === 'hinkal')
+      return ['hinkal', appInfo, true]
     }
-    return ['demo']
+
+    const appInfo = apps[0]
+    if (window.location.pathname === '/goledo') {
+      return ['goledo', appInfo]
+    } else {
+      return ['demo', appInfo]
+    }
   }, [])
 
   const [data, setData] = React.useState(null)
-  const completed = data && (
-    <a className='flex items-center hover:underline' href={`https://explorer.meson.fi/swap/${data.swapId}`} target='_blank' rel="noreferrer">
-      <span className='font-medium'>{data.amount / 1e6} {data.from.token} on {data.from.chain}</span>
-      <span className='mx-1.5 text-gray-300'>{'>'}</span>
-      <span className='font-medium'>{data.received / 1e6} {data.to.token} on {data.to.chain}</span>
-      <span className='mx-1.5 text-gray-300'>{'>'}</span>
-      <img className='h-4 mr-1' src='/icon192.png' alt='' />
-      <span className='font-medium'>Demo App</span>
-    </a>
-  )
-
+  
   return (
     <div className='w-full min-h-full bg-indigo-50 flex flex-col'>
       <header className='flex flex-row items-center w-full px-4 sm:px-6 py-2'>
         <img className='h-8 mr-2' src='/icon192.png' alt='' />
         <div>
-          <div className='text-lg'>Demo Web3 App</div>
+          <div className='text-lg'>{appInfo?.title}</div>
           <div className='text-xs font-light text-gray'>
-            A demo to demonstrate cross-chain deposit with meson
+            {appInfo?.subtitle}
           </div>
         </div>
       </header>
@@ -41,10 +39,10 @@ export default function App() {
       <div className='my-4 md:mt-6 mx-4 sm:mx-6 md:mx-8 max-w-[960px] self-center grid grid-flow-row-dense md:grid-cols-5'>
         <div className='md:col-span-3 md:mt-[64px] lg:mt-[108px] mb-3 md:pr-8'>
           <div className='font-semibold text-2xl mb-2'>
-            Make Cross-chain Deposit
+            {appInfo?.section_1_title}
           </div>
           <div className='block text-base'>
-            to any web3 apps with almost zero fee & slippage.
+            {appInfo?.section_1_desc}
           </div>
         </div>
 
@@ -54,15 +52,17 @@ export default function App() {
 
         <div className='md:col-span-3 mt-3 md:mt-8 md:pr-8 flex flex-col items-start'>
           <div className='font-semibold text-2xl mb-2'>
-            How does this demo work?
+            {appInfo?.section_2_title}
           </div>
           <ol className='list-decimal ml-6 mb-2'>
-            <li>Click the <i>Deposit with meson</i> button below</li>
-            <li>Complete cross-chain transfer in the popup window</li>
+          {
+            appInfo?.section_2_steps.map((step, i) => (
+              <li key={`step-${i}`} dangerouslySetInnerHTML={{ __html: step }} />
+            ))
+          }
           </ol>
           <div>
-            In this demo, you can use stablecoins from any chain and transfer them directly to app's smart contract on Polygon.
-            This example contract will forward receiving tokens to the sender's address on Polygon.
+            {appInfo?.section_2_desc}
           </div>
           <div>
             <MesonToButton
@@ -71,10 +71,12 @@ export default function App() {
               onCompleted={setData}
               className='mt-4 lg:mt-6'
             >
-              <ButtonText />
+              <ButtonText text={appInfo?.button} />
             </MesonToButton>
           </div>
-          <div className='mt-3 text-gray-500 text-sm'>{completed}</div>
+          <div className='mt-3'>
+            <Completed isTestnet={isTestnet} appId={appId} appName={appInfo?.name} data={data} />
+          </div>
         </div>
       </div>
 
@@ -89,6 +91,6 @@ export default function App() {
   )
 }
 
-function ButtonText ({ pending }) {
-  return pending ? 'Waiting for meson' : 'Deposit with meson'
+function ButtonText ({ text, pending }) {
+  return pending ? 'Waiting for meson' : text
 }
