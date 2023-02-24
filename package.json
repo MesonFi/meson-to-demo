@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@ethersproject/providers": "^5.7.2",
-    "@mesonfi/to": "^0.1.4-rc.1",
+    "@mesonfi/to": "^0.1.5-rc.15",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",

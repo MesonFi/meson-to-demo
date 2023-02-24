@@ -1,5 +1,5 @@
 import React from 'react'
-import MesonToButton from '@mesonfi/to'
+import { MesonToButton } from '@mesonfi/to'
 
 import Completed from './Completed'
 
@@ -8,10 +8,10 @@ import popup from './popup.jpg'
 import apps from './apps.json'
 
 export default function App() {
-  const [appId, appInfo, isTestnet] = React.useMemo(() => {
+  const [appId, appInfo, host, isTestnet] = React.useMemo(() => {
     if (window.location.pathname === '/hinkal') {
       const appInfo = apps.find(app => app.id === 'hinkal')
-      return ['hinkal', appInfo, true]
+      return ['hinkal', appInfo, 'testnet', true]
     }
 
     const appInfo = apps[0]
@@ -67,7 +67,7 @@ export default function App() {
           <div>
             <MesonToButton
               appId={appId}
-              isTestnet={isTestnet}
+              host={host}
               onCompleted={setData}
               className='mt-4 lg:mt-6'
             >
