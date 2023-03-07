@@ -1755,10 +1755,10 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@mesonfi/to@^0.2.0-rc.3":
-  version "0.2.0-rc.3"
-  resolved "https://registry.yarnpkg.com/@mesonfi/to/-/to-0.2.0-rc.3.tgz#4ebe42a889d5ac813cf37b3b06f454704eacdfb6"
-  integrity sha512-HugS7lkcrNjGB69GS40eZfAA0pT3QoLvAOLmlXVePMCo+lth6LwuLwWWceOfHWYGJbM6p299U0/zh+OnONE9MQ==
+"@mesonfi/to@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@mesonfi/to/-/to-0.2.1.tgz#f691f6f71bb78e0838102890e52458cef09b4e3e"
+  integrity sha512-VaQDCBBxaudTLdsQNFYL+vl6w7GgVYEVM9Jp47hHiu/t9HBhlk5YrMgqKfhGhCbUj+9BLz81u9eyNrzxcRWtkA==
 
 "@noble/hashes@1.1.2":
   version "1.1.2"
