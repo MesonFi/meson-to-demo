@@ -15,6 +15,21 @@
     "button": "Deposit with meson"
   },
   {
+    "id": "sprintcheckout",
+    "name": "Sprintcheckout",
+    "title": "Demo for Sprintcheckout",
+    "subtitle": "A demo to demonstrate cross-chain deposit to Sprintcheckout",
+    "section_1_title": "Make Cross-chain Deposit to Sprintcheckout",
+    "section_1_desc": "[description]",
+    "section_2_title": "How does this demo work?",
+    "section_2_steps": [
+      "Click the <i>Deposit to Sprintcheckout</i> button below",
+      "Complete cross-chain transfer in the popup window"
+    ],
+    "section_2_desc": "In this demo, you can use stablecoins from any chain to make payment via Sprintcheckout. [more]",
+    "button": "Deposit to Sprintcheckout"
+  },
+  {
     "id": "hinkal",
     "name": "Hinkal",
     "title": "Demo for Hinkal",
