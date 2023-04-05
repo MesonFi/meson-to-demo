@@ -9,6 +9,11 @@ import apps from './apps.json'
 
 export default function App() {
   const [appId, appInfo, host, isTestnet] = React.useMemo(() => {
+    if (window.location.pathname === '/cubic') {
+      const appInfo = apps.find(app => app.id === 'cubic')
+      return ['cubic', appInfo, 'testnet', true]
+    }
+
     if (window.location.pathname === '/sprintcheckout') {
       const appInfo = apps.find(app => app.id === 'sprintcheckout')
       return ['sprintcheckout', appInfo, 'testnet', true]
