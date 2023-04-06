@@ -37,7 +37,7 @@ export default function App() {
   return (
     <div className='w-full min-h-full bg-indigo-50 flex flex-col'>
       <header className='flex flex-row items-center w-full px-4 sm:px-6 py-2'>
-        <img className='h-8 mr-2' src='/icon192.png' alt='' />
+        <img className='h-8 mr-2' src={appInfo?.icon || '/icon192.png'} alt='' />
         <div>
           <div className='text-lg'>{appInfo?.title}</div>
           <div className='text-xs font-light text-gray'>
