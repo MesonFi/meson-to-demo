@@ -19,15 +19,15 @@
     "icon": "/logos/cubic.png",
     "name": "Cubic",
     "title": "Cubic",
-    "subtitle": "A demo to demonstrate cross-chain deposit with meson",
+    "subtitle": "A Gaming Infrastructure on Sui",
     "section_1_title": "Make Cross-chain Deposit to Cubic",
-    "section_1_desc": "[description]",
+    "section_1_desc": "Cubic is a gaming infrastructure on Sui, onboarding millions of users and game studios to the Web3 gaming era.\nUsers can transfer stablecoins from any chain to Cubic on Sui, powered by meson.",
     "section_2_title": "How does this demo work?",
     "section_2_steps": [
       "Click the <i>Deposit to Cubic</i> button below",
       "Complete cross-chain transfer in the popup window"
     ],
-    "section_2_desc": "In this demo, you can use stablecoins from any chain to Cubic on Sui. [more]",
+    "section_2_desc": "In this demo, you can use stablecoins from any chain to Cubic on Sui. In the future, we will integrate stablecoin cross-chain into Cubic SDK for game studios.",
     "button": "Deposit to Cubic"
   },
   {

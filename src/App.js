@@ -51,9 +51,7 @@ export default function App() {
           <div className='font-semibold text-2xl mb-2'>
             {appInfo?.section_1_title}
           </div>
-          <div className='block text-base'>
-            {appInfo?.section_1_desc}
-          </div>
+          {appInfo?.section_1_desc.split('\n').map((line, i) => <div key={`line-${i}`} className='block text-base'>{line}</div>)}
         </div>
 
         <div className='md:row-span-4 md:col-span-2 flex flex-col items-center p-5'>
