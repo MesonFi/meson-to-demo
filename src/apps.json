@@ -31,6 +31,21 @@
     "button": "Deposit to Cubic"
   },
   {
+    "id": "myshell",
+    "name": "MyShell",
+    "title": "Demo for MyShell",
+    "subtitle": "A demo to demonstrate cross-chain deposit with alls.to",
+    "section_1_title": "Make Cross-chain Deposit to MyShell",
+    "section_1_desc": "",
+    "section_2_title": "How does this demo work?",
+    "section_2_steps": [
+      "Click the <i>Pay to MyShell</i> button below",
+      "Complete cross-chain transfer in the popup window"
+    ],
+    "section_2_desc": "In this demo, you can use stablecoins from any chain and transfer them directly to MyShell.",
+    "button": "Pay to MyShell"
+  },
+  {
     "id": "sprintcheckout",
     "name": "Sprintcheckout",
     "title": "Demo for Sprintcheckout",

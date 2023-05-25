@@ -4,31 +4,36 @@ import { MesonToButton } from '@mesonfi/to'
 import Completed from './Completed'
 
 import { ReactComponent as MesonIcon } from './meson.svg'
-import popup from './popup.jpg'
+import popup from './popup.png'
 import apps from './apps.json'
 
 export default function App() {
-  const [appId, appInfo, host, isTestnet] = React.useMemo(() => {
+  const [to, appInfo, host, isTestnet] = React.useMemo(() => {
     if (window.location.pathname === '/cubic') {
       const appInfo = apps.find(app => app.id === 'cubic')
-      return ['cubic', appInfo, 'testnet', true]
+      return [{ id: 'cubic' }, appInfo, 'testnet', true]
+    }
+
+    if (window.location.pathname === '/myshell') {
+      const appInfo = apps.find(app => app.id === 'myshell')
+      return [{ id: 'myshell', addr: '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2' }, appInfo, 'https://t.alls.to']
     }
 
     if (window.location.pathname === '/sprintcheckout') {
       const appInfo = apps.find(app => app.id === 'sprintcheckout')
-      return ['sprintcheckout', appInfo, 'testnet', true]
+      return [{ id: 'sprintcheckout' }, appInfo, 'testnet', true]
     }
 
     if (window.location.pathname === '/hinkal') {
       const appInfo = apps.find(app => app.id === 'hinkal')
-      return ['hinkal', appInfo, 'testnet', true]
+      return [{ id: 'hinkal' }, appInfo, 'testnet', true]
     }
 
     const appInfo = apps[0]
     if (window.location.pathname === '/goledo') {
-      return ['goledo', appInfo]
+      return [{ id: 'goledo' }, appInfo]
     } else {
-      return ['demo', appInfo]
+      return [{ id: 'demo' }, appInfo]
     }
   }, [])
 
@@ -74,7 +79,8 @@ export default function App() {
           </div>
           <div>
             <MesonToButton
-              appId={appId}
+              type='iframe'
+              to={to}
               host={host}
               onCompleted={setData}
               className='mt-4 lg:mt-6'
@@ -83,7 +89,7 @@ export default function App() {
             </MesonToButton>
           </div>
           <div className='mt-3'>
-            <Completed isTestnet={isTestnet} appId={appId} appName={appInfo?.name} data={data} />
+            <Completed isTestnet={isTestnet} appId={to.id} appName={appInfo?.name} data={data} />
           </div>
         </div>
       </div>
