@@ -1888,8 +1888,8 @@
 
 "@mesonfi/to@^0.5.0-rc.1":
   version "0.5.0-rc.1"
-  resolved "https://npm.pkg.github.com/download/@mesonfi/to/0.5.0-rc.1/6b2eba7875e3d906b26728d367756a5d68c1205b#6b2eba7875e3d906b26728d367756a5d68c1205b"
-  integrity sha512-H+Ijju+K1j+Sz0stKKgStkBncvUA7iiQyQI77mdeI6TIh1LkaNp+ULu/+jgzVfVVXwr5fP+H5aJyGM/fSGlT2Q==
+  resolved "https://npm.pkg.github.com/download/@mesonfi/to/0.5.0-rc.1/015cb2f80886204e933372a0e8b4d9b711f04882#015cb2f80886204e933372a0e8b4d9b711f04882"
+  integrity sha512-N21Mi9WzD5MbND1uYuPVTGcva7nZHSMmpsVZIfnGd6uGvswioqdjqKoNcmkvpS5b1IGSS5gYb2NLfVEG527eTQ==
   dependencies:
     "@mysten/sui.js" "^0.34.1"
     "@wallet-standard/core" "^1.0.3"

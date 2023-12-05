@@ -1,5 +1,5 @@
 import React from 'react'
-import { MesonToButton } from '@mesonfi/to'
+import { MesonToButton } from '@mesonfi/to/react'
 
 import Completed from './Completed'
 
