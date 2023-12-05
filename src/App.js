@@ -7,48 +7,41 @@ import { ReactComponent as MesonIcon } from './meson.svg'
 import popup from './popup.png'
 import apps from './apps.json'
 
-export default function App() {
-  const [to, appInfo, host, isTestnet] = React.useMemo(() => {
-    if (window.location.pathname === '/cubic') {
-      const appInfo = apps.find(app => app.id === 'cubic')
-      return [{ id: 'cubic' }, appInfo, 'testnet', true]
-    }
+import ParticleButton, { useParticle } from './particle'
 
+export default function App() {
+  const withParticle = window.location.pathname === '/particle'
+  const { userInfo, login, particleProvider } = useParticle()
+
+  const [to, appInfo, host, isTestnet] = React.useMemo(() => {
     if (window.location.pathname === '/myshell') {
       const appInfo = apps.find(app => app.id === 'myshell')
       return [{ id: 'myshell', addr: '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2' }, appInfo, 'https://t.alls.to']
     }
 
-    if (window.location.pathname === '/sprintcheckout') {
-      const appInfo = apps.find(app => app.id === 'sprintcheckout')
-      return [{ id: 'sprintcheckout' }, appInfo, 'testnet', true]
-    }
-
-    if (window.location.pathname === '/hinkal') {
-      const appInfo = apps.find(app => app.id === 'hinkal')
-      return [{ id: 'hinkal' }, appInfo, 'testnet', true]
-    }
-
     const appInfo = apps[0]
-    if (window.location.pathname === '/goledo') {
-      return [{ id: 'goledo' }, appInfo]
-    } else {
-      return [{ id: 'demo' }, appInfo]
+    if (window.location.pathname === '/particle') {
+      return [{ id: 'demo', provider: particleProvider }, appInfo]
     }
-  }, [])
+    return [{ id: 'demo' }, appInfo]
+  }, [particleProvider])
 
   const [data, setData] = React.useState(null)
-  
+
   return (
     <div className='w-full min-h-full bg-indigo-50 flex flex-col'>
-      <header className='flex flex-row items-center w-full px-4 sm:px-6 py-2'>
-        <img className='h-8 mr-2' src={appInfo?.icon || '/icon192.png'} alt='' />
-        <div>
-          <div className='text-lg'>{appInfo?.title}</div>
-          <div className='text-xs font-light text-gray'>
-            {appInfo?.subtitle}
+      <header className='flex flex-row w-full items-center justify-between px-4 sm:px-6 py-2'>
+        <div className='flex flex-row items-center'>
+          <img className='h-8 mr-2' src={appInfo?.icon || '/icon192.png'} alt='' />
+          <div>
+            <div className='text-lg'>{appInfo?.title}</div>
+            <div className='text-xs font-light text-gray'>
+              {appInfo?.subtitle}
+            </div>
           </div>
         </div>
+
+        {withParticle && <ParticleButton userInfo={userInfo} login={login} />}
       </header>
 
       <div className='my-4 md:mt-6 mx-4 sm:mx-6 md:mx-8 max-w-[960px] self-center grid grid-flow-row-dense md:grid-cols-5'>
