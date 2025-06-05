@@ -14,6 +14,12 @@ export default function App() {
   const { userInfo, login, particleProvider } = useParticle()
 
   const [to, appInfo, host, isTestnet] = React.useMemo(() => {
+    if (window.location.pathname === '/core') {
+      const appInfo = apps.find(app => app.id === 'core')
+      return [{ id: 'core', addr: '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2' }, appInfo, 'https://coredao.org']
+    }
+
+
     if (window.location.pathname === '/myshell') {
       const appInfo = apps.find(app => app.id === 'myshell')
       return [{ id: 'myshell', addr: '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2' }, appInfo, 'https://t.alls.to']
@@ -23,7 +29,7 @@ export default function App() {
     if (window.location.pathname === '/particle') {
       return [{ id: 'demo', provider: particleProvider }, appInfo]
     }
-    return [{ id: 'demo' }, appInfo]
+    return [{ id: 'demo2' }, appInfo]
   }, [particleProvider])
 
   const [data, setData] = React.useState(null)
