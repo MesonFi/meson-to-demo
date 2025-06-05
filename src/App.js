@@ -16,7 +16,7 @@ export default function App() {
   const [to, appInfo, host, isTestnet] = React.useMemo(() => {
     if (window.location.pathname === '/core') {
       const appInfo = apps.find(app => app.id === 'core')
-      return [{ id: 'core', addr: '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2' }, appInfo, 'https://coredao.org']
+      return [{ id: 'core', addr: '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2' }, appInfo]
     }
 
 
