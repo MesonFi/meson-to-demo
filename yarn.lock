@@ -1886,10 +1886,10 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.4.tgz#b2ac626d6cb9c8718ab459166d4bb405b8ffa78b"
   integrity sha512-Hcv+nVC0kZnQ3tD9GVu5xSMR4VVYOteQIr/hwFPVEvPdlXqgGEuRjiheChHgdM+JyqdgNcmzZOX/tnl0JOiI7A==
 
-"@mesonfi/to@^0.5.0-rc.1":
-  version "0.5.0-rc.1"
-  resolved "https://npm.pkg.github.com/download/@mesonfi/to/0.5.0-rc.1/015cb2f80886204e933372a0e8b4d9b711f04882#015cb2f80886204e933372a0e8b4d9b711f04882"
-  integrity sha512-N21Mi9WzD5MbND1uYuPVTGcva7nZHSMmpsVZIfnGd6uGvswioqdjqKoNcmkvpS5b1IGSS5gYb2NLfVEG527eTQ==
+"@mesonfi/to@^0.5.0-rc.2":
+  version "0.5.0-rc.2"
+  resolved "https://npm.pkg.github.com/download/@mesonfi/to/0.5.0-rc.2/d3dc5527ba9ebd546180344ad373301a4f8d30d2#d3dc5527ba9ebd546180344ad373301a4f8d30d2"
+  integrity sha512-nRAMG+6yfQHjACxUfqxKRcmNjWP7HVov3RhUexdkx/WTRLc08Fg3k33fNYQWz3dakHRTyR7ynA0VJb10cFaEJQ==
   dependencies:
     "@mysten/sui.js" "^0.34.1"
     "@wallet-standard/core" "^1.0.3"

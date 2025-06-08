@@ -13,10 +13,10 @@ export default function App() {
   const withParticle = window.location.pathname === '/particle'
   const { userInfo, login, particleProvider } = useParticle()
 
-  const [to, appInfo, host, isTestnet] = React.useMemo(() => {
+  const [to, appInfo, host, target, isTestnet] = React.useMemo(() => {
     if (window.location.pathname === '/core') {
       const appInfo = apps.find(app => app.id === 'core')
-      return [{ id: 'core', addr: '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2' }, appInfo]
+      return [{ id: 'core', addr: '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2' }, appInfo, '', 'parent']
     }
 
 
@@ -76,13 +76,13 @@ export default function App() {
           <div>
             {appInfo?.section_2_desc}
           </div>
-          <div>
+          <div className='w-[480px] h-[640px] mt-4 lg:mt-6'>
             <MesonToButton
-              type='iframe'
+              target={target || 'iframe'}
               to={to}
               host={host}
               onCompleted={setData}
-              className='mt-4 lg:mt-6'
+              className='flex items-center'
             >
               <ButtonText text={appInfo?.button} />
             </MesonToButton>
