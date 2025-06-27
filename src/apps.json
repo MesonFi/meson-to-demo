@@ -30,6 +30,21 @@
     "button": "Deposit with meson"
   },
   {
+    "id": "carrot",
+    "name": "Carrot Swap",
+    "title": "Demo Web3 App",
+    "subtitle": "A demo to demonstrate cross-chain deposit with meson",
+    "section_1_title": "Make Cross-chain Deposit to Carrot Swap",
+    "section_1_desc": "",
+    "section_2_title": "How does this demo work?",
+    "section_2_steps": [
+      "Click the <i>Deposit with meson</i> button below",
+      "Complete cross-chain transfer in the popup window"
+    ],
+    "section_2_desc": "In this demo, you can use stablecoins from any chain and transfer them directly to Carrot Swap.",
+    "button": "Deposit with meson"
+  },
+  {
     "id": "myshell",
     "name": "MyShell",
     "title": "Demo for MyShell",
