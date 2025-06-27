@@ -21,7 +21,7 @@ export default function App() {
 
     if (window.location.pathname === '/carrot') {
       const appInfo = apps.find(app => app.id === 'carrot')
-      return [{ id: 'carrot', addr: '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2' }, appInfo]
+      return [{ id: 'carrot' }, appInfo]
     }
 
     if (window.location.pathname === '/myshell') {
