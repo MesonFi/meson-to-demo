@@ -84,7 +84,7 @@ export default function App() {
             <MesonToButton
               target={target || 'iframe'}
               to={to}
-              host={host}
+              host={'https://beta2.meson.fi'}
               onCompleted={setData}
               className='flex items-center'
             >
