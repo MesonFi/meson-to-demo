@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "@mesonfi/to": "2.0.0-alpha.2",
+    "@mesonfi/to": "2.0.0-alpha.3",
     "@particle-network/auth": "^1.2.2",
     "@particle-network/provider": "^1.2.1",
     "@testing-library/jest-dom": "^5.14.1",

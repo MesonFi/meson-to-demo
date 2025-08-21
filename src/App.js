@@ -13,27 +13,35 @@ export default function App() {
   const withParticle = window.location.pathname === '/particle'
   const { userInfo, login, particleProvider } = useParticle()
 
-  const [to, appInfo, host, target, isTestnet] = React.useMemo(() => {
+  const [options, appInfo] = React.useMemo(() => {
     if (window.location.pathname === '/core') {
       const appInfo = apps.find(app => app.id === 'core')
-      return [{ id: 'core', addr: '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2' }, appInfo, '', 'parent']
+      return [{ to: 'core', recipient: '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2' }, appInfo]
     }
 
     if (window.location.pathname === '/carrot') {
       const appInfo = apps.find(app => app.id === 'carrot')
-      return [{ id: 'carrot' }, appInfo]
-    }
-
-    if (window.location.pathname === '/myshell') {
-      const appInfo = apps.find(app => app.id === 'myshell')
-      return [{ id: 'myshell', addr: '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2' }, appInfo, 'https://t.alls.to']
+      return [{ to: 'carrot' }, appInfo]
     }
 
     const appInfo = apps[0]
     if (window.location.pathname === '/particle') {
-      return [{ id: 'demo', provider: particleProvider }, appInfo]
+      return [{ to: 'demo2', provider: particleProvider }, appInfo]
     }
-    return [{ id: 'demo2' }, appInfo]
+    const search = window.location.search;
+    const params = new URLSearchParams(search);
+
+    const to = params.get('to') || 'bnb';
+    const from = params.get('from') ? params.get('from').split(',') : ['chain', 'cex'];
+    const recipient = params.get('recipient') || '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2';
+    const amount = params.get('amount') || '100';
+
+    return [{
+      to,
+      from,
+      recipient,
+      amount
+    }, appInfo]
   }, [particleProvider])
 
   const [data, setData] = React.useState(null)
@@ -80,11 +88,10 @@ export default function App() {
           <div>
             {appInfo?.section_2_desc}
           </div>
-          <div className='w-[480px] h-[640px] mt-4 lg:mt-6'>
+          <div className='mt-4 lg:mt-6'>
             <MesonToButton
-              target={target || 'iframe'}
-              to={to}
-              host={'https://beta2.meson.fi'}
+              options={options}
+              __host={'https://beta2.meson.fi'}
               onCompleted={setData}
               className='flex items-center'
             >
@@ -92,7 +99,7 @@ export default function App() {
             </MesonToButton>
           </div>
           <div className='mt-3'>
-            <Completed isTestnet={isTestnet} appId={to.id} appName={appInfo?.name} data={data} />
+            <Completed isTestnet={false} appId={options.to} appName={appInfo?.name} data={data} />
           </div>
         </div>
       </div>
