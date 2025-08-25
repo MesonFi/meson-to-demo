@@ -92,6 +92,7 @@ export default function App() {
             <MesonToButton
               options={options}
               __host={'https://beta2.meson.fi'}
+              // __host={'http://localhost:3001'}
               onCompleted={setData}
               className='flex items-center'
             >
