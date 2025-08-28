@@ -14,35 +14,38 @@ export default function App() {
   const { userInfo, login, particleProvider } = useParticle()
 
   const [options, appInfo] = React.useMemo(() => {
-    if (window.location.pathname === '/core') {
-      const appInfo = apps.find(app => app.id === 'core')
-      return [{ to: 'core', recipient: '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2' }, appInfo]
-    }
+    // if (window.location.pathname === '/core') {
+    //   const appInfo = apps.find(app => app.id === 'core')
+    //   return [{ to: 'core', recipient: '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2' }, appInfo]
+    // }
 
-    if (window.location.pathname === '/carrot') {
-      const appInfo = apps.find(app => app.id === 'carrot')
-      return [{ to: 'carrot' }, appInfo]
-    }
+    // if (window.location.pathname === '/carrot') {
+    //   const appInfo = apps.find(app => app.id === 'carrot')
+    //   return [{ to: 'carrot' }, appInfo]
+    // }
 
-    const appInfo = apps[0]
-    if (window.location.pathname === '/particle') {
-      return [{ to: 'demo2', provider: particleProvider }, appInfo]
-    }
+    // const appInfo = apps[0]
+    // if (window.location.pathname === '/particle') {
+    //   return [{ to: 'demo2', provider: particleProvider }, appInfo]
+    // }
+    const pathName = window.location.pathname.replace('/', '');
     const search = window.location.search;
     const params = new URLSearchParams(search);
 
-    const to = params.get('to') || 'bnb';
+    const to = pathName || params.get('to') || 'demo';
     const from = params.get('from') ? params.get('from').split(',') : ['chain', 'cex'];
     const recipient = params.get('recipient') || '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2';
     const amount = params.get('amount') || '100';
+    const tokens = params.get('token') ? params.get('token').split(',') : undefined;
 
     return [{
       to,
       from,
       recipient,
-      amount
-    }, appInfo]
-  }, [particleProvider])
+      amount,
+      tokens
+    }, apps.find(app => app.id === 'default')]
+  }, [])
 
   const [data, setData] = React.useState(null)
 
