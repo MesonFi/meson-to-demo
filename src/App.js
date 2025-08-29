@@ -94,7 +94,7 @@ export default function App() {
           <div className='mt-4 lg:mt-6'>
             <MesonToButton
               options={options}
-              __host={'https://beta2.meson.fi'}
+              __host={'https://v2.meson.to'}
               // __host={'http://localhost:3001'}
               onCompleted={setData}
               className='flex items-center'
