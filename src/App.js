@@ -33,9 +33,9 @@ export default function App() {
     const params = new URLSearchParams(search);
 
     const to = pathName || params.get('to') || 'demo';
-    const from = params.get('from') ? params.get('from').split(',') : ['chain', 'cex'];
-    const recipient = params.get('recipient') || '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2';
-    const amount = params.get('amount') || '100';
+    const from = params.get('from') ? params.get('from').split(',') : undefined;
+    const recipient = params.get('recipient');
+    const amount = params.get('amount');
     const tokens = params.get('token') ? params.get('token').split(',') : undefined;
 
     return [{
@@ -95,6 +95,7 @@ export default function App() {
             <MesonToButton
               options={options}
               __host={'https://v2.meson.to'}
+              // __host={'https://beta2.meson.fi'}
               // __host={'http://localhost:3001'}
               onCompleted={setData}
               className='flex items-center'
