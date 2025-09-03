@@ -11,23 +11,9 @@ import ParticleButton, { useParticle } from './particle'
 
 export default function App() {
   const withParticle = window.location.pathname === '/particle'
-  const { userInfo, login, particleProvider } = useParticle()
+  const { userInfo, login } = useParticle()
 
   const [options, appInfo] = React.useMemo(() => {
-    // if (window.location.pathname === '/core') {
-    //   const appInfo = apps.find(app => app.id === 'core')
-    //   return [{ to: 'core', recipient: '0x666d6b8a44d226150ca9058bEEbafe0e3aC065A2' }, appInfo]
-    // }
-
-    // if (window.location.pathname === '/carrot') {
-    //   const appInfo = apps.find(app => app.id === 'carrot')
-    //   return [{ to: 'carrot' }, appInfo]
-    // }
-
-    // const appInfo = apps[0]
-    // if (window.location.pathname === '/particle') {
-    //   return [{ to: 'demo2', provider: particleProvider }, appInfo]
-    // }
     const pathName = window.location.pathname.replace('/', '');
     const search = window.location.search;
     const params = new URLSearchParams(search);
