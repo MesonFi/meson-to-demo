@@ -30,7 +30,7 @@ export default function App() {
       recipient,
       amount,
       tokens
-    }, apps.find(app => app.id === 'default')]
+    }, apps.find(app => app.id === to) || apps[0]]
   }, [])
 
   const [data, setData] = React.useState(null)
