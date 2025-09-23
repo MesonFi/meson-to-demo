@@ -4,7 +4,8 @@ import { MesonToButton } from '@mesonfi/to/react'
 import Completed from './Completed'
 
 import { ReactComponent as MesonIcon } from './meson.svg'
-import popup from './popup.png'
+import popup_pc from './popup_pc.png'
+import popup_mobile from './popup_mobile.png'
 import apps from './apps.json'
 
 import ParticleButton, { useParticle } from './particle'
@@ -51,16 +52,17 @@ export default function App() {
         {withParticle && <ParticleButton userInfo={userInfo} login={login} />}
       </header>
 
-      <div className='my-4 md:mt-6 mx-4 sm:mx-6 md:mx-8 max-w-[960px] self-center grid grid-flow-row-dense md:grid-cols-5'>
-        <div className='md:col-span-3 md:mt-[64px] lg:mt-[108px] mb-3 md:pr-8'>
+      <div className='my-4 md:mt-[94px] mx-4 sm:mx-6 md:mx-8 max-w-[960px] self-center grid grid-flow-row-dense md:grid-cols-5'>
+        <div className='md:col-span-3 mb-3 md:pr-8'>
           <div className='font-semibold text-2xl mb-2'>
             {appInfo?.section_1_title}
           </div>
           {appInfo?.section_1_desc.split('\n').map((line, i) => <div key={`line-${i}`} className='block text-base'>{line}</div>)}
         </div>
 
-        <div className='md:row-span-4 md:col-span-2 flex flex-col items-center p-5'>
-          <img className='w-[320px] md:w-[280px] md:min-w-[280px] lg:w-[320px] border-[0.5px] border-[#d2d6d6] rounded-xl shadow-[0_5px_40px_-10px_rgba(0,0,0,0.2)]' src={popup} alt='meson.to popup' />
+        <div className='md:row-span-4 md:col-span-2 flex flex-col items-center py-3 md:py-0'>
+          <img className='hidden md:block border border-[#DDF3EA] rounded-2xl shadow-[0_0_16px_0_rgba(31,190,158,0.04)]' src={popup_pc} alt='meson.to popup' />
+          <img className='md:hidden border border-[#DDF3EA] rounded-2xl shadow-[0_0_16px_0_rgba(31,190,158,0.04)]' src={popup_mobile} alt='meson.to popup' />
         </div>
 
         <div className='md:col-span-3 mt-3 md:mt-8 md:pr-8 flex flex-col items-start'>
@@ -96,11 +98,11 @@ export default function App() {
       </div>
 
       <div className='flex-1' />
-      <div className='self-center my-4 flex items-center text-gray-400 text-sm'>
+      <div className='self-center my-4 flex items-center text-[#75807B] text-sm cursor-pointer group hover:text-[#25372E]'>
         Powered by
-        <a className='opacity-50 hover:opacity-80' href='https://meson.fi' target='_blank' rel="noreferrer">
-          <MesonIcon className='ml-1.5 w-[80px]' />
-        </a>
+        <div className="pl-1 opacity-60 group-hover:opacity-100">
+          <MesonIcon />
+        </div>
       </div>
     </div>
   )
